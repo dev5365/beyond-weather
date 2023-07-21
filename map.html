@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+     <script src="scrip2.js" defer></script>
+     <link href="main.css" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logo.ico">
+       
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+     google.charts.load('current', {
+	'packages':['geochart'],
+  
+	'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+  });
+  google.charts.setOnLoadCallback(drawRegionsMap);
+
+  function drawRegionsMap() {
+	var data = google.visualization.arrayToDataTable([
+	  ['State Code',   'State','AQI'],
+	  ['IN-AP','Andhra Pradesh',139],
+	  ['IN-AR','Arunachal Pradesh',124],
+	  ['IN-AS','Assam',254],
+	  ['IN-BR','Bihar',282],
+	  ['IN-CT','Chhattisgarh',105],
+	  ['IN-GA','Goa',124],
+	  ['IN-GJ','Gujarat',136],
+	  ['IN-HR','Haryana',159],
+	  ['IN-HP','Himachal Pradesh',60],
+	  ['IN-JH','Jharkhand',178],
+	  ['IN-KA','Karnataka',104],
+	  ['IN-KL','Kerala',139],
+	  ['IN-MP','Madhya Pradesh',143],
+	  ['IN-MH','Maharashtra',127],
+	  ['IN-MN','Manipur',156],
+	  ['IN-ML','Meghalaya',202],
+	  ['IN-MZ','Mizoram',60],
+	  ['IN-NL','Nagaland',134],
+	  ['IN-OR','Odisha',175],
+	  ['IN-PB','Punjab',113],
+	  ['IN-RJ','Rajasthan',161],
+	  ['IN-SK','Sikkim',161],
+	  ['IN-TN','Tamil Nadu',137],
+	  ['IN-TG','Telangana',125],
+	  ['IN-TR','Tripura',183],
+	  ['IN-UT','Uttarakhand',124],
+	  ['IN-UP','Uttar Pradesh',174],
+	  ['IN-WB','West Bengal',227],
+	  ['IN-AN','Andaman and Nicobar Islands',106],
+	  ['IN-CH','Chandigarh',152],
+	  ['IN-DH','Daman and Diu',159],
+	  ['IN-DL','Delhi',208],
+	  ['IN-JK','Jammu and Kashmīr',37],
+	  ['IN-LA','Ladakh',15],
+	  ['IN-LD','Lakshadweep',130],
+	  ['IN-PY','Puducherry',161]
+	]);
+
+	var options = {
+	  region: 'IN',
+	  domain: 'IN',
+	  displayMode: 'regions',
+	  colorAxis: {colors: ['#008000', '#FFFF00', '#FF0000']},
+	  resolution:'provinces',
+	  backgroundColor: '#81d4fa',
+	  datalessRegionColor: '#f8bbd0',
+	  defaultColor: '#f5f5f5',
+	};
+
+	var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+	chart.draw(data, options);
+  };
+    </script>
+    <title>MAP</title>
+</head>
+<body>
+    <!--header-->
+    <header class="text-gray-600 body-font" style="background-color: rgb(71, 207, 237);">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">Beyond Weather</span>
+          </a>
+          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900" href="index.html" >HOME</a>
+            <a class="mr-5 hover:text-gray-900" href="map.html" style="color: rgb(236, 38, 38); font-weight: bolder;">MAP</a>
+            <a class="mr-5 hover:text-gray-900" href="contact.html">CONTACT US</a>
+            <a class="mr-5 hover:text-gray-900" href="feedback.html">FEEDBACK</a>
+          </nav>
+          <a href="#"><button id="btndark" onclick="myFunction()" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">&#127763</button></a>
+          
+            &nbsp;
+            &nbsp;
+          <a href="news.html"><button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">News</button></a>
+        </div>
+      </header>
+      <center><div id="geochart-colors" style="width: 700px; height: 433px; margin-top: 50px;"></div></center>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.dark-mode {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    
+  }
+#p1{
+  background-image: url("p5.jpg");
+  background-size: cover;
+}
+#hero{
+  background-color: azure;
+}
